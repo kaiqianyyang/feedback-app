@@ -1,13 +1,31 @@
 import { createContext, useState } from "react";
+import { v4 as uuidv4 } from 'uuid'
 
 const FeedbackContext = createContext()
 
 export const FeedbackProvider = ({ children }) => {
     const [feedback, setFeedback] = useState([
-       { id: 1,
-        text: 'This item is from context',
-        rating: 10,}
+        { 
+            id: 1,
+            text: 'This item feedback item 1',
+            rating: 10,
+        },
+        { 
+            id: 2,
+            text: 'This item feedback item 2',
+            rating: 4,
+        },
+        { 
+            id: 3,
+            text: 'This item feedback item 3',
+            rating: 1,
+        },
     ])
+
+    const addFeedback = (newFeedback) => {
+        newFeedback.id = uuidv4()
+        setFeedback([newFeedback, ...feedback])
+    }
 
     // since feedback data is in this file, we need the delete handler to deal with it here.
     const deleteFeedback = (id) => {
@@ -20,6 +38,7 @@ export const FeedbackProvider = ({ children }) => {
         value={{
             feedback,
             deleteFeedback,
+            addFeedback,
         }}>
         {children}
     </FeedbackContext.Provider>
