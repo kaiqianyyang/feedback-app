@@ -27,4 +27,4 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ### `npm run dev`
 
 `npm start` and `npm run build` at the same time, but in order to reuse the UI, please remember to change localhost every time or clear the cache.
-<img title="demo" alt="demo" src="./sample1.png">
+<img title="demo" src="./sample1.png">
